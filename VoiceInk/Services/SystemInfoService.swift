@@ -57,6 +57,7 @@ class SystemInfoService {
             CLIPBOARD & PASTE SETTINGS:
             Restore Clipboard After Paste: \(UserDefaults.standard.bool(forKey: "restoreClipboardAfterPaste"))
             Clipboard Restore Delay: \(UserDefaults.standard.double(forKey: "clipboardRestoreDelay"))s
+            Copy When No Text Field Focused: \(UserDefaults.standard.bool(forKey: "copyWhenNoTextFieldFocused"))
             Paste Method: \(PasteMethod.current().displayName)
 
             DATA CLEANUP SETTINGS:

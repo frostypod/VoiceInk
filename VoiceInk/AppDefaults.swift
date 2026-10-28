@@ -23,6 +23,7 @@ enum AppDefaults {
             // Clipboard
             "restoreClipboardAfterPaste": true,
             "clipboardRestoreDelay": 2.0,
+            "copyWhenNoTextFieldFocused": true,
             "useAppleScriptPaste": false,
 
             // Audio & Media

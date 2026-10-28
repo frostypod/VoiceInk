@@ -17,6 +17,7 @@ struct SettingsView: View {
     @AppStorage("enableAnnouncements") private var enableAnnouncements = true
     @AppStorage("restoreClipboardAfterPaste") private var restoreClipboardAfterPaste = true
     @AppStorage("clipboardRestoreDelay") private var clipboardRestoreDelay = 2.0
+    @AppStorage("copyWhenNoTextFieldFocused") private var copyWhenNoTextFieldFocused = true
     @AppStorage(PasteMethod.userDefaultsKey) private var pasteMethodRawValue = PasteMethod.standard.rawValue
     @AppStorage(AppAppearancePreference.userDefaultsKey) private var appAppearancePreference = AppAppearancePreference
         .system
@@ -165,6 +166,15 @@ struct SettingsView: View {
                         Text("3s").tag(3.0)
                         Text("4s").tag(4.0)
                         Text("5s").tag(5.0)
+                    }
+                }
+
+                Toggle(isOn: $copyWhenNoTextFieldFocused) {
+                    HStack(spacing: 4) {
+                        Text("Copy when no text field is focused")
+                        InfoTip(
+                            "When the focused element clearly can't accept text, VoiceInk copies the transcription to your clipboard instead of pasting. If it can't tell, it pastes as usual."
+                        )
                     }
                 }
 

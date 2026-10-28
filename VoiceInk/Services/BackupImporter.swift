@@ -210,6 +210,9 @@ enum BackupImporter {
         if let clipboardDelay = general.clipboardRestoreDelay {
             UserDefaults.standard.set(clipboardDelay, forKey: "clipboardRestoreDelay")
         }
+        if let copyWhenNoTextField = general.copyWhenNoTextFieldFocused {
+            UserDefaults.standard.set(copyWhenNoTextField, forKey: "copyWhenNoTextFieldFocused")
+        }
 
         print("Successfully imported general settings.")
     }

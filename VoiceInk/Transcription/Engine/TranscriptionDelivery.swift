@@ -161,6 +161,15 @@ final class TranscriptionDelivery {
         SoundManager.shared.playStopSound()
         await actions.dismiss()
 
+        if UserDefaults.standard.bool(forKey: "copyWhenNoTextFieldFocused"),
+            FocusedTextInputDetector.detect() == .notTextInput,
+            ClipboardManager.copyToClipboard(pastedText)
+        {
+            logger.notice("No text input focused; copied transcription instead of pasting")
+            NotificationManager.shared.showNotification(title: "Copied, nothing to paste into", type: .info)
+            return
+        }
+
         let pasteTask = CursorPaster.startPasteAtCursor(pastedText)
 
         let autoSendKey = output.outputMode == .paste ? output.autoSendKey : .none
