@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(security find-identity *)",
+      "Bash(security find-certificate *)"
+    ]
+  }
+}
